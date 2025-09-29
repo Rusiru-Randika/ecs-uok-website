@@ -28,7 +28,6 @@ export default function Header() {
 
   const handleCloseMenu2 = () => {
     setToggleMenu2(false);
-    
   };
   return (
     <div className="w-full h-[80px] z-10 bg-primary drop-shadow-lg fixed">
@@ -79,7 +78,7 @@ export default function Header() {
                 </li>
               </Link>
             </ul>
-            
+
             <Link to={"/news"}>
               <li>News</li>
             </Link>
@@ -96,16 +95,29 @@ export default function Header() {
                   : `hidden`
               }
             >
-              <a href="https://robotbattles.ecsc-uok.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://robotbattles.ecsc-uok.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <li className="py-6" onClick={handleCloseMenu2}>
                   UOK Robot Battles
+                </li>
+              </a>
+              <hr />
+              <a
+                href="https://medusa.ecsc-uok.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className="py-6" onClick={handleCloseMenu2}>
+                  Medusa - CTF Challenge
                 </li>
               </a>
             </ul>
             <Link to={"/achievement"}>
               <li>Achievements</li>
             </Link>
-            
           </ul>
         </div>
 
@@ -184,7 +196,11 @@ export default function Header() {
         </li>
         {toggleMenu2 ? (
           <div className="pl-4">
-            <a href="https://robotbattles.ecsc-uok.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://robotbattles.ecsc-uok.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <li
                 className="p-4"
                 onClick={() => {
@@ -192,6 +208,20 @@ export default function Header() {
                 }}
               >
                 UOK Robot Battles
+              </li>
+            </a>
+            <a
+              href="https://medusa.ecsc-uok.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <li
+                className="p-4"
+                onClick={() => {
+                  setToggleNavBar(false);
+                }}
+              >
+                Medusa - CTF Challenge
               </li>
             </a>
           </div>
