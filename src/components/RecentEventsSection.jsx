@@ -1,7 +1,24 @@
 import { FaNewspaper } from "react-icons/fa6";
-import CarouselSlider from "./CarouselSlider";
+// import FacebookFeed from "./FacebookFeed";
+import { useEffect } from "react";
 
 export default function RecentEventsSection() {
+  useEffect(() => {
+    // Load the Elfsight script dynamically
+    const script = document.createElement("script");
+    script.src = "https://elfsightcdn.com/platform.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount if necessary
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className="bg-primary py-6 md:py-12 mt-8 px-10 w-full md:px-48 transition-all duration-1000">
@@ -15,7 +32,14 @@ export default function RecentEventsSection() {
           Latest news, recent events and upcoming events
         </div>
       </div>
-      <CarouselSlider />
+      <div className="w-full flex justify-center my-8 px-16">
+        <div className="w-full">
+          <div
+            className="elfsight-app-80ce087a-7296-4bf6-889d-6b488cec4074"
+            data-elfsight-app-lazy
+          ></div>
+        </div>
+      </div>
     </>
   );
 }
