@@ -10,7 +10,6 @@ import AchievementPage from "./pages/AchievementPage";
 import DidYouKnow from "./pages/DidYouKnow";
 //import RobotBattlePage from "./pages/RobotBattlePage";
 //import ECSCCricketPage from "./pages/ECSCCricketPage";
-import EWasteWeekPage from "./pages/EWasteWeekPage";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
         <Route path="/did-you-know" element={<DidYouKnow />} />
         <Route path="/achievement" element={<AchievementPage />} />
         {/*<Route path="/robot_battles" element={<RobotBattlePage />} />*/}
-        <Route path="/e-waste-week" element={<EWasteWeekPage />} />
       </Route>
     </Routes>
   );
