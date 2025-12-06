@@ -3,7 +3,6 @@ import HeroSection from "../components/HeroSection";
 import LetsTalkSection from "../components/LetsTalkSection";
 import PurposeSection from "../components/PurposeSection";
 import { Helmet } from "react-helmet-async";
-//import RobotBattleBanner from "../components/RoboBattleBanner";
 
 export default function LandingPage() {
   return (
@@ -17,6 +16,8 @@ export default function LandingPage() {
         <link rel="canonical" href="/" />
       </Helmet>
       <HeroSection />
+      {/* To add an event banner (e.g., RobotBattleBanner), uncomment the line below */}
+      {/*If You want to add the Banner for the events,like below RobotBattleBanner uncomment the line below */}
       {/*<RobotBattleBanner /> */}
       <PurposeSection />
       <RecentEventsSection />

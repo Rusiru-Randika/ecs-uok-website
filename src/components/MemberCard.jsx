@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import { FaEnvelope, FaUser, FaRankingStar } from "react-icons/fa6";
+import { FaUser, FaRankingStar } from "react-icons/fa6";
 
 export default function MemberCard({
   member_photo,
   member_role,
   member_name,
   member_linkedinUrl,
-  member_email,
 }) {
   return (
     <div className="flex flex-col sm:flex-row rounded-2xl drop-shadow-md bg-white sm:gap-2 hover:shadow-lg transition-shadow duration-300 h-auto sm:h-[180px] pr-2">
@@ -63,5 +62,4 @@ MemberCard.propTypes = {
   member_name: PropTypes.string.isRequired,
   member_photo: PropTypes.string.isRequired,
   member_linkedinUrl: PropTypes.string,
-  member_email: PropTypes.string.isRequired,
 };

@@ -27,7 +27,6 @@ function App() {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/did-you-know" element={<DidYouKnow />} />
         <Route path="/achievement" element={<AchievementPage />} />
-        {/*<Route path="/robot_battles" element={<RobotBattlePage />} />*/}
       </Route>
     </Routes>
   );

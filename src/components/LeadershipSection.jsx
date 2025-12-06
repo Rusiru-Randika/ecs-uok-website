@@ -40,8 +40,7 @@ export default function LeadershipSection() {
           member_linkedinUrl={member.attributes.memberLinkedinUrl}
           member_role={member.attributes.memberRole}
           member_email={member.attributes.memberEmail}
-        />
-      ))}
+        />))}
 </div>
       )}
     </div>
