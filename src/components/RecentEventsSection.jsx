@@ -1,6 +1,5 @@
 import { FaNewspaper } from "react-icons/fa6";
 import CarouselSlider from "./CarouselSlider";
-// import YoutubePlayer from "./YoutubePlayer";
 
 export default function RecentEventsSection() {
   return (
@@ -16,7 +15,6 @@ export default function RecentEventsSection() {
           Latest news, recent events and upcoming events
         </div>
       </div>
-      {/* <YoutubePlayer /> */}
       <CarouselSlider />
     </>
   );

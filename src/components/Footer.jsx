@@ -7,7 +7,6 @@ import {
   FaDiscord,
   FaYoutube,
   FaLocationDot,
-  FaPhone,
   FaEnvelope,
 } from "react-icons/fa6";
 
@@ -132,7 +131,12 @@ export default function Footer() {
           <ol>
             {siteMapLinkArray.map((item) => {
               return item.external ? (
-                <a key={item.id} href={item.to} target="_blank" rel="noreferrer">
+                <a
+                  key={item.id}
+                  href={item.to}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <li className="text-sm sm:text-base md:text-lg font-sans cursor-pointer py-1">
                     {item.name}
                   </li>

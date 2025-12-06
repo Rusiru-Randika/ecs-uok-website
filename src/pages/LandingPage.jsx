@@ -3,10 +3,7 @@ import HeroSection from "../components/HeroSection";
 import LetsTalkSection from "../components/LetsTalkSection";
 import PurposeSection from "../components/PurposeSection";
 import { Helmet } from "react-helmet-async";
-//import Essencia from "../components/Essencia";
-//import InterviewCall from "../components/InterviewCall";
 //import RobotBattleBanner from "../components/RoboBattleBanner";
-//import Scoreboard from "../components/Scoreboard";
 
 export default function LandingPage() {
   return (
@@ -20,10 +17,7 @@ export default function LandingPage() {
         <link rel="canonical" href="/" />
       </Helmet>
       <HeroSection />
-      {/*<Essencia />*/}
-      {/*<Scoreboard />*/}
       {/*<RobotBattleBanner /> */}
-      {/*<InterviewCall />*/}
       <PurposeSection />
       <RecentEventsSection />
       <LetsTalkSection />
