@@ -44,80 +44,88 @@ export default function Header() {
 
         <div className="flex items-center mr-24">
           <ul className="hidden md:flex text-white text-xl gap-12">
-            <Link to={"/"}>
+            <Link
+              to={"/"}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <li>Home</li>
             </Link>
-            <li
-              className="cursor-pointer flex items-center gap-4"
-              onClick={handleClickMenuBar1}
-            >
-              About {toggleMenu1 ? <FaCaretDown /> : <FaCaretRight />}
-            </li>
-            <ul
-              className={
-                toggleMenu1
-                  ? `absolute mt-12 ml-16 bg-primary max-w-[300px] px-8 text-white`
-                  : `hidden`
-              }
-            >
-              <Link to={"/about/about-ecsc"}>
-                <li className="py-6" onClick={handleCloseMenu1}>
-                  About ECSC
-                </li>
-                <hr />
-              </Link>
-              <Link to={"/about/messages"}>
-                <li className="py-6" onClick={handleCloseMenu1}>
-                  Messages
-                </li>
-                <hr />
-              </Link>
-              <Link to={"/about/executive-committee"}>
-                <li className="py-6" onClick={handleCloseMenu1}>
-                  Executive Committee
-                </li>
-              </Link>
-            </ul>
+            <li className="relative">
+              <div
+                className="cursor-pointer flex items-center gap-4"
+                onClick={handleClickMenuBar1}
+              >
+                About {toggleMenu1 ? <FaCaretDown /> : <FaCaretRight />}
+              </div>
+              <ul
+                className={
+                  toggleMenu1
+                    ? `absolute top-12 left-0 bg-primary max-w-[300px] px-8 text-white w-max`
+                    : `hidden`
+                }
+              >
+                <Link to={"/about/about-ecsc"}>
+                  <li className="py-6" onClick={handleCloseMenu1}>
+                    About ECSC
+                  </li>
+                  <hr />
+                </Link>
 
-            <Link to={"/news"}>
-              <li>News</li>
-            </Link>
-            <li
-              className="cursor-pointer flex items-center gap-4"
-              onClick={handleClickMenuBar2}
-            >
-              Events {toggleMenu2 ? <FaCaretDown /> : <FaCaretRight />}
+                <Link to={"/about/executive-committee"}>
+                  <li className="py-6" onClick={handleCloseMenu1}>
+                    Executive Committee
+                  </li>
+                </Link>
+              </ul>
             </li>
-            <ul
-              className={
-                toggleMenu2
-                  ? `absolute mt-12 ml-80 bg-primary max-w-[300px] px-8 text-white`
-                  : `hidden`
-              }
-            >
-              <a
-                href="https://robotbattles.ecsc-uok.com/"
-                target="_blank"
-                rel="noreferrer"
+
+            <li className="relative">
+              <div
+                className="cursor-pointer flex items-center gap-4"
+                onClick={handleClickMenuBar2}
               >
-                <li className="py-6" onClick={handleCloseMenu2}>
-                  UOK Robot Battles
-                </li>
-              </a>
-              <hr />
-              <a
-                href="https://medusa.ecsc-uok.com/"
-                target="_blank"
-                rel="noreferrer"
+                Events {toggleMenu2 ? <FaCaretDown /> : <FaCaretRight />}
+              </div>
+              <ul
+                className={
+                  toggleMenu2
+                    ? `absolute top-12 left-0 bg-primary max-w-[300px] px-8 text-white w-max`
+                    : `hidden`
+                }
               >
-                <li className="py-6" onClick={handleCloseMenu2}>
-                  Medusa - CTF Challenge
-                </li>
-              </a>
-            </ul>
-            <Link to={"/achievement"}>
+                <a
+                  href="https://robotbattles.ecsc-uok.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <li className="py-6" onClick={handleCloseMenu2}>
+                    UOK Robot Battles
+                  </li>
+                </a>
+                <hr />
+                <a
+                  href="https://medusa.ecsc-uok.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <li className="py-6" onClick={handleCloseMenu2}>
+                    Medusa - CTF Challenge
+                  </li>
+                </a>
+              </ul>
+            </li>
+            {/* <Link to={"/achievement"}>
               <li>Achievements</li>
-            </Link>
+            </Link> */}
+            <a
+              href="/#contact"
+              onClick={() => {
+                setToggleMenu1(false);
+                setToggleMenu2(false);
+              }}
+            >
+              <li>Contact Us</li>
+            </a>
           </ul>
         </div>
 
@@ -139,7 +147,10 @@ export default function Header() {
             : `hidden`
         }
       >
-        <Link to={"/"}>
+        <Link
+          to={"/"}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           <li className="p-4">Home</li>
         </Link>
         <li
@@ -160,16 +171,7 @@ export default function Header() {
                 About ECSC
               </li>
             </Link>
-            <Link to={"/about/messages"}>
-              <li
-                className="p-4"
-                onClick={() => {
-                  setToggleNavBar(false);
-                }}
-              >
-                Messages
-              </li>
-            </Link>
+
             <Link to={"/about/executive-committee"}>
               <li
                 className="p-4"
@@ -185,9 +187,6 @@ export default function Header() {
           ""
         )}
 
-        <Link to={"/news"}>
-          <li className="p-4">News</li>
-        </Link>
         <li
           className="cursor-pointer flex items-center gap-4 p-4"
           onClick={handleClickMenuBar2}
@@ -228,9 +227,19 @@ export default function Header() {
         ) : (
           ""
         )}
-        <Link to={"/achievement"}>
+        {/* <Link to={"/achievement"}>
           <li className="p-4">Achievements</li>
-        </Link>
+        </Link> */}
+        <a
+          href="/#contact"
+          onClick={() => {
+            setToggleNavBar(false);
+            setToggleMenu1(false);
+            setToggleMenu2(false);
+          }}
+        >
+          <li className="p-4">Contact Us</li>
+        </a>
       </ul>
     </div>
   );

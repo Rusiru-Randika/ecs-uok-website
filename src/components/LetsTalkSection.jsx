@@ -5,7 +5,10 @@ import ContactUsForm from "./ContactUsForm";
 export default function LetsTalkSection() {
   return (
     <>
-      <div className="bg-primary py-6 md:py-12 px-6 w-full md:px-48 transition-all duration-1000">
+      <div
+        id="contact"
+        className="scroll-mt-24 bg-primary py-6 md:py-12 px-6 w-full md:px-48 transition-all duration-1000"
+      >
         <div className="w-full md:px-10 flex flex-col justify-center">
           <div className="text-white flex items-center gap-4">
             <FaHeadset className="w-8 h-10 md:w-10 md:h-12" />
