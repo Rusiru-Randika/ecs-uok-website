@@ -5,163 +5,169 @@ import {
   FaInstagram,
   FaLinkedin,
   FaYoutube,
-  FaLocationDot,
-  FaEnvelope,
 } from "react-icons/fa6";
 
-const siteMapLinkArray = [
+const discoverLinks = [
+  { id: 1, name: "Home", to: "/", isExternal: false },
+  { id: 2, name: "About Us", to: "/about/about-ecsc", isExternal: false },
+  { id: 3, name: "Events", to: "/#events", isExternal: false },
+  { id: 4, name: "News", to: "/#news", isExternal: false },
+];
+
+const learnMoreLinks = [
+  { id: 1, name: "Courses", to: "#", isExternal: false },
+  { id: 2, name: "Achievements", to: "#achievements", isExternal: false },
+  { id: 3, name: "Gallery", to: "#", isExternal: false },
+  { id: 4, name: "Contact Us", to: "/#contact", isExternal: false },
+];
+
+const socialLinks = [
   {
     id: 1,
-    name: "Home",
-    to: "/",
+    to: "https://www.facebook.com/profile.php?id=61550473266598",
+    icon: <FaFacebook />,
+    label: "Facebook",
   },
   {
     id: 2,
-    name: "UOK Robot Battles",
-    to: "https://robotbattles.ecsc-uok.com/",
+    to: "https://instagram.com/ecsc_uok",
+    icon: <FaInstagram />,
+    label: "Instagram",
   },
   {
     id: 3,
-    name: "Medusa CTF Challange",
-    to: "https://medusa.ecsc-uok.com/",
+    to: "https://youtube.com/@ECSCUOK",
+    icon: <FaYoutube />,
+    label: "YouTube",
   },
   {
     id: 4,
-    name: "About ECSC",
-    to: "/about/about-ecsc",
-  },
-];
-
-const StayConnectedLinkArray = [
-  {
-    id: 1,
-    name: "Faculty of Science, University of Kelaniya",
-    to: "https://goo.gl/maps/98oGFdWo3nPwue2d9",
-    icon: <FaLocationDot className="w-5 md:w-8 h-5 md:h-8" />,
-  },
-  {
-    id: 3,
-    name: "ecs.uok@gmail.com",
-    to: "mailto:ecs.uok@gmail.com",
-    icon: <FaEnvelope className="w-5 md:w-6 h-5 md:h-6" />,
-  },
-];
-
-const SocialMediaLinksArray = [
-  {
-    id: 1,
     to: "https://www.linkedin.com/company/electronics-and-computer-science-club/",
-    icon: (
-      <FaLinkedin className="w-6 h-6 md:w-9 md:h-9 hover:fill-black duration-500" />
-    ),
-  },
-  {
-    id: 2,
-    to: "https://www.facebook.com/profile.php?id=61550473266598",
-    icon: (
-      <FaFacebook className="w-6 h-6 md:w-9 md:h-9 hover:fill-black duration-500" />
-    ),
-  },
-  {
-    id: 3,
-    to: "https://instagram.com/ecsc_uok",
-    icon: (
-      <FaInstagram className="w-6 h-6 md:w-9 md:h-9 hover:fill-black duration-500" />
-    ),
-  },
-  {
-    id: 5,
-    to: "https://youtube.com/@ECSCUOK",
-    icon: (
-      <FaYoutube className="w-6 h-6 md:w-9 md:h-9 hover:fill-black duration-500" />
-    ),
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
   },
 ];
 
 export default function Footer() {
   return (
-    <div className="w-full bg-primary text-white p-4 static">
-      <div className="grid grid-cols-1 md:grid-cols-6 md:gap-8 mx-4 sm:mx-10 md:mx-20 border-b-2 border-white pb-6">
-        <div className="flex flex-col md:col-span-3 items-center justify-center text-center">
-          <img
-            src={Logo}
-            alt="ecsc logo"
-            className="w-auto max-h-[100px] sm:max-h-[120px] md:max-h-[200px]"
-          />
-          <p className="mt-2 text-sm sm:text-base md:mt-0">
-            &quot;Let&apos;s Embrace the world of Hardware and Software, to
-            create a sustainable future&quot;
-          </p>
-        </div>
+    <footer
+      className="border-t border-gray-200 pt-16 pb-8 bg-white"
+      id="contact"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Col 1: Branding */}
+          <div className="col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-10 w-10 bg-gray-100 rounded-full flex items-center justify-center overflow-hidden">
+                <img alt="ECSC Logo" className="h-8 w-auto" src={Logo} />
+              </div>
+              <span className="font-bold text-lg text-gray-800">ECSC UOK</span>
+            </div>
+            <p className="text-sm text-gray-600 leading-relaxed mb-6">
+              Empowering the future of technology through hardware innovation
+              and software excellence at the University of Kelaniya.
+            </p>
+            <div className="text-sm text-gray-500">
+              <p>Dalugama,</p>
+              <p>Kelaniya 11600,</p>
+              <p>Sri Lanka.</p>
+            </div>
+          </div>
 
-        <div className="col-span-2 md:col-span-1 md:col-start-5 flex flex-col justify-start items-left pt-4 md:pt-8">
-          <h6 className="font-bold uppercase text-lg sm:text-xl">Site Map</h6>
-          <ol>
-            {siteMapLinkArray.map((item) => {
-              return item.external ? (
+          {/* Col 2 & 3: Links */}
+          <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-4">Discover</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                {discoverLinks.map((link) =>
+                  link.isExternal ? (
+                    <li key={link.id}>
+                      <a
+                        href={link.to}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.id}>
+                      <Link
+                        to={link.to}
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-4">Learn More</h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                {learnMoreLinks.map((link) =>
+                  link.isExternal ? (
+                    <li key={link.id}>
+                      <a
+                        href={link.to}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.id}>
+                      <Link
+                        to={link.to}
+                        className="hover:text-red-600 transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </div>
+          </div>
+
+          {/* Col 4: Social Links */}
+          <div className="col-span-1">
+            <h4 className="font-semibold text-gray-900 mb-4">
+              Connect with Us
+            </h4>
+            <div className="flex space-x-3">
+              {socialLinks.map((social) => (
                 <a
-                  key={item.id}
-                  href={item.to}
+                  key={social.id}
+                  href={social.to}
                   target="_blank"
                   rel="noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
+                  aria-label={social.label}
                 >
-                  <li className="text-sm sm:text-base md:text-lg font-sans cursor-pointer py-1">
-                    {item.name}
-                  </li>
+                  {social.icon}
                 </a>
-              ) : (
-                <Link key={item.id} to={item.to}>
-                  <li className="text-sm sm:text-base md:text-lg font-sans cursor-pointer py-1">
-                    {item.name}
-                  </li>
-                </Link>
-              );
-            })}
-          </ol>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col md:col-start-6 items-left justify-start pt-4 md:pt-8">
-          {/* Stay Connected Section */}
-          <h6 className="font-bold uppercase text-lg sm:text-xl">
-            Stay Connected
-          </h6>
-          <ol>
-            {StayConnectedLinkArray.map((item) => {
-              return (
-                <div
-                  className="flex items-center justify-start gap-2 sm:gap-4 my-2"
-                  key={item.id}
-                >
-                  {item.icon}
-                  <a
-                    className="text-sm sm:text-base md:text-lg cursor-pointer"
-                    href={item.to}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {item.name}
-                  </a>
-                </div>
-              );
-            })}
-          </ol>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <p>© 2025 University of Kelaniya ECSC. All rights reserved.</p>
+          <p className="mt-2 md:mt-0">
+            Design inspired by{" "}
+            <span className="text-gray-600 font-medium">
+              @ Cornellionier 2022
+            </span>
+          </p>
         </div>
       </div>
-
-      <div className="flex flex-col pt-6 md:pt-8 justify-center items-center text-center text-white">
-        <div className="flex flex-wrap justify-center mb-4 gap-6 sm:gap-8 md:gap-12">
-          {SocialMediaLinksArray.map((item) => {
-            return (
-              <a key={item.id} href={item.to} target="_blank" rel="noreferrer">
-                {item.icon}
-              </a>
-            );
-          })}
-        </div>
-        <p className="text-xs sm:text-sm md:text-base">
-          © Copyright 2025 by&nbsp; ECS Club. All Rights Reserved.
-        </p>
-      </div>
-    </div>
+    </footer>
   );
 }

@@ -1,27 +1,26 @@
-import RecentEventsSection from "../components/RecentEventsSection";
 import HeroSection from "../components/HeroSection";
-import LetsTalkSection from "../components/LetsTalkSection";
-import PurposeSection from "../components/PurposeSection";
+import AboutSection from "../components/AboutSection";
+import FlagshipEventsSection from "../components/FlagshipEventsSection";
+import AchievementsSection from "../components/AchievementsSection";
 import { Helmet } from "react-helmet-async";
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className="bg-white">
       <Helmet>
-        <title>Electronics and Computer Science Club</title>
+        <title>
+          ECSC - Electronics and Computer Science Club | University of Kelaniya
+        </title>
         <meta
           name="description"
-          content="Welcome to the Electronics and Computer Science Club at the University of Kelaniya."
+          content="Welcome to the Electronics and Computer Science Club at the University of Kelaniya. We build, we code, and we innovate together."
         />
         <link rel="canonical" href="/" />
       </Helmet>
       <HeroSection />
-      {/* To add an event banner (e.g., RobotBattleBanner), uncomment the line below */}
-      {/*If You want to add the Banner for the events,like below RobotBattleBanner uncomment the line below */}
-      {/*<RobotBattleBanner /> */}
-      <PurposeSection />
-      <RecentEventsSection />
-      <LetsTalkSection />
+      <AboutSection />
+      <FlagshipEventsSection />
+      <AchievementsSection />
     </div>
   );
 }
