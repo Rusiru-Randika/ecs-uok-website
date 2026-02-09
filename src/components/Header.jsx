@@ -31,7 +31,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white/95 backdrop-blur-md fixed top-0 left-0 z-50 border-b border-gray-100 shadow-sm">
+    <header className="w-full bg-blue-900 backdrop-blur-md fixed top-0 left-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Area */}
@@ -46,7 +46,7 @@ export default function Header() {
             <Link
               to={"/"}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-gray-600 hover:text-red-600 font-medium transition-colors duration-200"
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
             >
               Home
             </Link>
@@ -54,7 +54,7 @@ export default function Header() {
             {/* About Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center gap-1 text-gray-600 hover:text-red-600 font-medium transition-colors duration-200"
+                className="flex items-center gap-1 text-white hover:text-blue-200 font-medium transition-colors duration-200 bg-transparent border-0 cursor-pointer"
                 onClick={handleClickMenuBar1}
               >
                 About{" "}
@@ -93,7 +93,7 @@ export default function Header() {
             {/* Events Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center gap-1 text-gray-600 hover:text-red-600 font-medium transition-colors duration-200"
+                className="flex items-center gap-1 text-white hover:text-blue-200 font-medium transition-colors duration-200 bg-transparent border-0 cursor-pointer"
                 onClick={handleClickMenuBar2}
               >
                 Events{" "}
@@ -143,7 +143,7 @@ export default function Header() {
                 setToggleMenu1(false);
                 setToggleMenu2(false);
               }}
-              className="text-gray-600 hover:text-red-600 font-medium transition-colors duration-200"
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
             >
               Contact Us
             </a>
@@ -155,9 +155,9 @@ export default function Header() {
             onClick={handleClickNavBar}
           >
             {toggleNavBar ? (
-              <FaXmark className="w-6 h-6 text-gray-600" />
+              <FaXmark className="w-6 h-6 text-white" />
             ) : (
-              <FaBars className="w-6 h-6 text-gray-600" />
+              <FaBars className="w-6 h-6 text-white" />
             )}
           </div>
         </div>

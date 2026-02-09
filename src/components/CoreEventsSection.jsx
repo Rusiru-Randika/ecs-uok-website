@@ -1,4 +1,4 @@
-export default function FlagshipEventsSection() {
+export default function CoreEventsSection() {
   const events = [
     {
       id: 1,
@@ -21,7 +21,7 @@ export default function FlagshipEventsSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white" id="events">
+    <section className="py-16 lg:py-24 bg-[#e1eaf5]" id="events">
       {/* Neon glow styles */}
       <style>{`
         .event-card {
@@ -41,13 +41,73 @@ export default function FlagshipEventsSection() {
                       0 0 60px rgba(34, 197, 94, 0.1);
           border-color: rgba(34, 197, 94, 0.6);
         }
+        .wavy-underline-core {
+          position: relative;
+          display: inline-block;
+        }
+        @keyframes waveMoveCore {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 50px 0;
+          }
+        }
+        .wavy-underline-core::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          width: 100%;
+          height: 12px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15'%3E%3Cpath d='M0 8 Q 12.5 2, 25 8 T 50 8 T 75 8 T 100 8' stroke='%23dc2626' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+          background-size: 50px 12px;
+          background-repeat: repeat-x;
+          animation: waveMoveCore 3s linear infinite;
+        }
+        
+        @keyframes morphBlob1 {
+          0% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+          25% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          }
+          50% {
+            border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
+          }
+          75% {
+            border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%;
+          }
+          100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+        }
+        
+        @keyframes morphBlob2 {
+          0% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          }
+          25% {
+            border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
+          }
+          50% {
+            border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%;
+          }
+          75% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+          100% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          }
+        }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Flagship Events
+            <span className="wavy-underline-core">Main</span> Events
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
             Discover the competitions and gatherings that define our academic
@@ -56,11 +116,30 @@ export default function FlagshipEventsSection() {
         </div>
 
         {/* Event Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
+          {/* Animated blob behind first card (purple) */}
+          <div
+            className="absolute -left-20 top-0 w-[700px] h-[500px] opacity-40 pointer-events-none hidden md:block"
+            style={{
+              background: "rgba(127, 0, 247, 0.4)",
+              borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+              animation: "morphBlob1 8s ease-in-out infinite",
+            }}
+          />
+          {/* Animated blob behind second card (green) */}
+          <div
+            className="absolute -right-20 bottom-0 w-[700px] h-[500px] opacity-40 pointer-events-none hidden md:block"
+            style={{
+              background: "rgba(34, 197, 94, 0.4)",
+              borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+              animation: "morphBlob2 8s ease-in-out infinite",
+            }}
+          />
+
           {events.map((event) => (
             <article
               key={event.id}
-              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full`}
+              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full relative z-10`}
             >
               {/* Image Area */}
               <div className="bg-gray-100 h-48 flex items-center justify-center overflow-hidden">

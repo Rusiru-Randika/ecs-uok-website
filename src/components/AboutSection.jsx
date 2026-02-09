@@ -14,6 +14,14 @@ export default function AboutSection() {
             position: relative;
             display: inline-block;
           }
+          @keyframes waveMove {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: 50px 0;
+            }
+          }
           .wavy-underline-about::after {
             content: '';
             position: absolute;
@@ -24,6 +32,7 @@ export default function AboutSection() {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15'%3E%3Cpath d='M0 8 Q 12.5 2, 25 8 T 50 8 T 75 8 T 100 8' stroke='%23dc2626' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
             background-size: 50px 12px;
             background-repeat: repeat-x;
+            animation: waveMove 3s linear infinite;
           }
         `}</style>
 
@@ -52,7 +61,43 @@ export default function AboutSection() {
               worlds of embedded systems, software engineering, and robotics.
             </p>
           </div>
-          <div>
+          <div className="relative">
+            {/* Red Target with Dart/Pin */}
+            <svg
+              className="absolute  top-0 w-200 h-200 opacity-15 pointer-events-none"
+              viewBox="0 0 120 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Target circles */}
+              <circle cx="60" cy="60" r="50" stroke="#dc2626" strokeWidth="4" />
+              <circle cx="60" cy="60" r="36" stroke="#dc2626" strokeWidth="4" />
+              <circle cx="60" cy="60" r="22" stroke="#dc2626" strokeWidth="4" />
+              <circle cx="60" cy="60" r="8" fill="#dc2626" />
+              {/* Dart/Pin hitting center */}
+              <line
+                x1="60"
+                y1="60"
+                x2="100"
+                y2="20"
+                stroke="#1e3a8a"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <polygon
+                points="100,15 105,25 95,25"
+                fill="#1e3a8a"
+                transform="rotate(-45 100 20)"
+              />
+              <ellipse
+                cx="100"
+                cy="20"
+                rx="6"
+                ry="3"
+                fill="#dc2626"
+                transform="rotate(-45 100 20)"
+              />
+            </svg>
             <p className="mb-6">
               Our mission is to empower undergraduates with the technical
               skills, soft skills, and industry exposure needed to thrive in the

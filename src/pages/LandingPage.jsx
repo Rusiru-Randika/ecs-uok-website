@@ -1,6 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
-import FlagshipEventsSection from "../components/FlagshipEventsSection";
+import CoreEventsSection from "../components/CoreEventsSection";
 import AchievementsSection from "../components/AchievementsSection";
 import { Helmet } from "react-helmet-async";
 
@@ -19,7 +19,7 @@ export default function LandingPage() {
       </Helmet>
       <HeroSection />
       <AboutSection />
-      <FlagshipEventsSection />
+      <CoreEventsSection />
       <AchievementsSection />
     </div>
   );

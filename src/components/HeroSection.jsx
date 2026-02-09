@@ -8,7 +8,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-white min-h-screen overflow-hidden flex items-center pt-20">
+    <section className="relative bg-[#e1eaf5] min-h-screen overflow-hidden flex items-center pt-20">
       {/* CSS Animation Keyframes */}
       <style>{`
         @keyframes morphShape {
@@ -31,12 +31,21 @@ export default function HeroSection() {
         
         .animated-blob {
           animation: morphShape 8s ease-in-out infinite;
-          background: #0d51e6ff;
+          background: #0a42bdff;
         }
         
         .wavy-underline {
           position: relative;
           display: inline-block;
+        }
+        
+        @keyframes waveMove {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 50px 0;
+          }
         }
         
         .wavy-underline::after {
@@ -49,6 +58,7 @@ export default function HeroSection() {
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15'%3E%3Cpath d='M0 8 Q 12.5 2, 25 8 T 50 8 T 75 8 T 100 8' stroke='%23dc2626' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
           background-size: 50px 12px;
           background-repeat: repeat-x;
+          animation: waveMove 3s linear infinite;
         }
         
         @keyframes bounceUp {
@@ -72,7 +82,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column: Content */}
           <div
-            className={`text-center lg:text-left space-y-8 z-10 transform transition-all duration-1000 ${
+            className={`relative text-center lg:text-left space-y-8 z-10 transform transition-all duration-1000 ${
               isVisible
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-10 opacity-0"
@@ -80,8 +90,8 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.2]">
               Let's Embrace the world of{" "}
-              <span className="text-blue-600 wavy-underline">Hardware</span> and{" "}
-              <span className="text-blue-600 wavy-underline">Software</span>, to
+              <span className="text-blue-800 wavy-underline">Hardware</span> and{" "}
+              <span className="text-blue-800 wavy-underline">Software</span>, to
               create a sustainable future
             </h1>
 
@@ -136,7 +146,7 @@ export default function HeroSection() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop"
+                src="/images/hero_image.jpg"
                 alt="ECSC Students working together"
                 className="w-full h-full object-cover"
               />
