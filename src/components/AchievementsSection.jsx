@@ -1,46 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function AchievementsSection() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [galleryImages, setGalleryImages] = useState([]);
 
-  const galleryImages = [
-    {
-      id: 1,
-      src: "/images/gallery/achievement1.jpg",
-      title: "Robot Battles 2023",
-      description: "Winners of the annual robotics competition",
-    },
-    {
-      id: 2,
-      src: "/images/gallery/achievement2.jpg",
-      title: "Hackathon Victory",
-      description: "First place at National Hackathon",
-    },
-    {
-      id: 3,
-      src: "/images/gallery/achievement3.jpg",
-      title: "Tech Workshop",
-      description: "Successfully conducted workshop for 100+ students",
-    },
-    {
-      id: 4,
-      src: "/images/gallery/achievement4.jpg",
-      title: "Community Project",
-      description: "Launched open-source project with 500+ stars",
-    },
-    {
-      id: 5,
-      src: "/images/gallery/achievement5.jpg",
-      title: "Industry Partnership",
-      description: "Collaboration with leading tech companies",
-    },
-    {
-      id: 6,
-      src: "/images/gallery/achievement6.jpg",
-      title: "Innovation Award",
-      description: "Recognized for outstanding innovation",
-    },
-  ];
+  useEffect(() => {
+    fetch("/data/achievements.json")
+      .then((res) => res.json())
+      .then((data) => setGalleryImages(data.slice(0, 3)))
+      .catch((err) => console.error("Failed to load achievements data:", err));
+  }, []);
 
   return (
     <section
@@ -164,6 +134,16 @@ export default function AchievementsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="text-center mt-12">
+          <Link
+            to="/achievements"
+            className="inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+          >
+            View All Achievements
+          </Link>
         </div>
       </div>
 
