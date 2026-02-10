@@ -121,19 +121,6 @@ export default function Header() {
               Contact Us
             </div>
           </a>
-
-          <a
-            href="/#contact"
-            onClick={() => {
-              setToggleNavBar(false);
-              setToggleMenu1(false);
-              setToggleMenu2(false);
-            }}
-          >
-            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
-              Contact Us
-            </div>
-          </a>
         </div>
       </div>
     </header>
