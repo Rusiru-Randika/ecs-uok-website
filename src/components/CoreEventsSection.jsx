@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function CoreEventsSection() {
+  const [hoveredEvent, setHoveredEvent] = useState(null);
+
   const events = [
     {
       id: 1,
@@ -22,49 +26,63 @@ export default function CoreEventsSection() {
 
   return (
     <section
-      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20 relative overflow-hidden"
+      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20 relative overflow-hidden transition-colors duration-500 ease-in-out"
       id="events"
     >
       {/* Animated blob shapes at section corners */}
       {/* Purple blob - top left */}
       <div
-        className="absolute left-0 top-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        className="absolute left-0 top-0 w-[400px] h-[400px] pointer-events-none hidden md:block transition-all duration-700 ease-in-out"
         style={{
           background: "rgba(127, 0, 247, 0.4)",
           borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-          animation: "morphBlob1 8s ease-in-out infinite",
-          transform: "translate(-30%, -30%)",
+          transform:
+            hoveredEvent === "purple"
+              ? "translate(-10%, -10%) scale(10)"
+              : "translate(-30%, -30%) scale(1)",
+          opacity: hoveredEvent === "purple" ? 0.5 : hoveredEvent ? 0 : 0.3,
+          zIndex: 0,
+          animation:
+            hoveredEvent === "purple"
+              ? "none"
+              : "morphBlob1 8s ease-in-out infinite",
         }}
       />
       {/* Green blob - bottom right */}
       <div
-        className="absolute right-0 bottom-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        className="absolute right-0 bottom-0 w-[400px] h-[400px] pointer-events-none hidden md:block transition-all duration-700 ease-in-out"
         style={{
           background: "rgba(34, 197, 94, 0.4)",
           borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
-          animation: "morphBlob2 8s ease-in-out infinite",
-          transform: "translate(30%, 30%)",
+          transform:
+            hoveredEvent === "green"
+              ? "translate(10%, 10%) scale(10)"
+              : "translate(30%, 30%) scale(1)",
+          opacity: hoveredEvent === "green" ? 0.5 : hoveredEvent ? 0 : 0.3,
+          zIndex: 0,
+          animation:
+            hoveredEvent === "green"
+              ? "none"
+              : "morphBlob2 8s ease-in-out infinite",
         }}
       />
 
       {/* Neon glow styles */}
       <style>{`
         .event-card {
-          transition: all 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .event-card-purple:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 0 20px rgba(147, 51, 234, 0.4), 
-                      0 0 40px rgba(147, 51, 234, 0.2),
-                      0 0 60px rgba(147, 51, 234, 0.1);
-          border-color: rgba(147, 51, 234, 0.6);
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3), 
+                      0 0 0 2px rgba(147, 51, 234, 0.5);
+          border-color: transparent;
         }
         .event-card-green:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 0 20px rgba(34, 197, 94, 0.4), 
-                      0 0 40px rgba(34, 197, 94, 0.2),
-                      0 0 60px rgba(34, 197, 94, 0.1);
-          border-color: rgba(34, 197, 94, 0.6);
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(34, 197, 94, 0.3), 
+                      0 0 0 2px rgba(34, 197, 94, 0.5);
+          border-color: transparent;
         }
         .wavy-underline-core {
           position: relative;
@@ -92,49 +110,29 @@ export default function CoreEventsSection() {
         }
         
         @keyframes morphBlob1 {
-          0% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          25% {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-          }
-          50% {
-            border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
-          }
-          75% {
-            border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%;
-          }
-          100% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
+          0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+          25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+          50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+          75% { border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%; }
+          100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
         
         @keyframes morphBlob2 {
-          0% {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-          }
-          25% {
-            border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
-          }
-          50% {
-            border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%;
-          }
-          75% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          100% {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-          }
+          0% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+          25% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+          50% { border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%; }
+          75% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+          100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
         }
       `}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 transition-colors duration-300">
             Main <span className="wavy-underline-core">Events</span>
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-2xl mx-auto transition-colors duration-300">
             Discover the competitions and gatherings that define our academic
             year.
           </p>
@@ -145,40 +143,35 @@ export default function CoreEventsSection() {
           {events.map((event) => (
             <article
               key={event.id}
-              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full relative z-10 group`}
+              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full relative z-10`}
+              onMouseEnter={() => setHoveredEvent(event.color)}
+              onMouseLeave={() => setHoveredEvent(null)}
             >
-              {/* Animated Background Shape */}
-              <div
-                className={`absolute top-[-50px] right-[-50px] w-32 h-32 rounded-full transition-transform duration-700 ease-in-out z-0 opacity-10 ${
-                  event.color === "purple" ? "bg-purple-600" : "bg-green-600"
-                } group-hover:scale-[25] group-hover:opacity-90`}
-              ></div>
-
               {/* Image Area */}
-              <div className="bg-gray-100 h-48 flex items-center justify-center overflow-hidden relative z-10 rounded-t-2xl">
+              <div className="bg-gray-100 h-48 flex items-center justify-center overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-8 flex-1 flex flex-col relative z-10 transition-colors duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors duration-300">
+              <div className="p-8 flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {event.title}
                 </h3>
-                <p className="text-gray-600 mb-6 flex-grow group-hover:text-gray-100 transition-colors duration-300">
+                <p className="text-gray-600 mb-6 flex-grow">
                   {event.description}
                 </p>
                 <a
                   href={event.link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`w-full inline-block text-center px-6 py-3 font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border-0 ${
+                  className={`w-full inline-block text-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-xl border-0 ${
                     event.color === "purple"
-                      ? "bg-purple-600 text-white group-hover:bg-white group-hover:text-purple-600"
-                      : "bg-green-600 text-white group-hover:bg-white group-hover:text-green-600"
+                      ? "bg-purple-600 hover:bg-purple-700"
+                      : "bg-green-600 hover:bg-green-700"
                   }`}
                 >
                   View Event Details
