@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 export default function TeamPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const allTeamMembers = [
     {
       id: 1,
@@ -53,7 +58,7 @@ export default function TeamPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen pt-24">
       <Helmet>
         <title>Our Team - ECSC | University of Kelaniya</title>
         <meta
@@ -63,7 +68,7 @@ export default function TeamPage() {
         <link rel="canonical" href="/team" />
       </Helmet>
 
-      <section className="py-16 lg:py-24 bg-white mt-20">
+      <section className="py-16 lg:py-24 bg-white">
         {/* Wavy underline animation */}
         <style>{`
           .wavy-underline-team {
