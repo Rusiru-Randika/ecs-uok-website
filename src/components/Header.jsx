@@ -90,52 +90,17 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* Events Dropdown */}
-            <div className="relative">
-              <button
-                className="flex items-center gap-1 text-white hover:text-blue-200 font-medium transition-colors duration-200 bg-transparent border-0 cursor-pointer"
-                onClick={handleClickMenuBar2}
-              >
-                Events{" "}
-                {toggleMenu2 ? (
-                  <FaCaretDown className="text-sm" />
-                ) : (
-                  <FaCaretRight className="text-sm" />
-                )}
-              </button>
-              <ul
-                className={
-                  toggleMenu2
-                    ? `absolute top-12 left-0 bg-white rounded-lg shadow-lg border border-gray-100 min-w-[200px] py-2`
-                    : `hidden`
-                }
-              >
-                <a
-                  href="https://robotbattles.ecsc-uok.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <li
-                    className="px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors"
-                    onClick={handleCloseMenu2}
-                  >
-                    UOK Robot Battles
-                  </li>
-                </a>
-                <a
-                  href="https://medusa.ecsc-uok.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <li
-                    className="px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors"
-                    onClick={handleCloseMenu2}
-                  >
-                    Medusa - CTF Challenge
-                  </li>
-                </a>
-              </ul>
-            </div>
+            {/* Events Link */}
+            <a
+              href="/#events"
+              onClick={() => {
+                setToggleMenu1(false);
+                setToggleMenu2(false);
+              }}
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+            >
+              Events
+            </a>
 
             <a
               href="/#contact"

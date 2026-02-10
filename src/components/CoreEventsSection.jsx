@@ -21,7 +21,32 @@ export default function CoreEventsSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-[#e1eaf5]" id="events">
+    <section
+      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20 relative overflow-hidden"
+      id="events"
+    >
+      {/* Animated blob shapes at section corners */}
+      {/* Purple blob - top left */}
+      <div
+        className="absolute left-0 top-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        style={{
+          background: "rgba(127, 0, 247, 0.4)",
+          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          animation: "morphBlob1 8s ease-in-out infinite",
+          transform: "translate(-30%, -30%)",
+        }}
+      />
+      {/* Green blob - bottom right */}
+      <div
+        className="absolute right-0 bottom-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        style={{
+          background: "rgba(34, 197, 94, 0.4)",
+          borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+          animation: "morphBlob2 8s ease-in-out infinite",
+          transform: "translate(30%, 30%)",
+        }}
+      />
+
       {/* Neon glow styles */}
       <style>{`
         .event-card {
@@ -103,7 +128,7 @@ export default function CoreEventsSection() {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -116,26 +141,7 @@ export default function CoreEventsSection() {
         </div>
 
         {/* Event Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
-          {/* Animated blob behind first card (purple) */}
-          <div
-            className="absolute -left-20 top-0 w-[700px] h-[500px] opacity-40 pointer-events-none hidden md:block"
-            style={{
-              background: "rgba(127, 0, 247, 0.4)",
-              borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-              animation: "morphBlob1 8s ease-in-out infinite",
-            }}
-          />
-          {/* Animated blob behind second card (green) */}
-          <div
-            className="absolute -right-20 bottom-0 w-[700px] h-[500px] opacity-40 pointer-events-none hidden md:block"
-            style={{
-              background: "rgba(34, 197, 94, 0.4)",
-              borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
-              animation: "morphBlob2 8s ease-in-out infinite",
-            }}
-          />
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {events.map((event) => (
             <article
               key={event.id}
