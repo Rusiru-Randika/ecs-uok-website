@@ -1,32 +1,15 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function TeamSection() {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Anuka Akshana",
-      role: "President",
-      image: "/images/team/member1.jpg",
-    },
-    {
-      id: 2,
-      name: "Nadula Wathurakumbura",
-      role: "Secretary",
-      image: "/images/team/member2.jpg",
-    },
-    {
-      id: 3,
-      name: "Aruna Kaushalaya",
-      role: "Vice President",
-      image: "/images/team/member3.jpg",
-    },
-    {
-      id: 4,
-      name: "Pasan Weerasekara",
-      role: "Junior Treasurer",
-      image: "/images/team/member4.jpg",
-    },
-  ];
+  const [teamMembers, setTeamMembers] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/team.json")
+      .then((res) => res.json())
+      .then((data) => setTeamMembers(data.slice(0, 4)))
+      .catch((err) => console.error("Failed to load team data:", err));
+  }, []);
 
   return (
     <section className="py-16 lg:py-24 bg-white scroll-mt-20" id="team">
