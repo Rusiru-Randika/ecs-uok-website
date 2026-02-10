@@ -9,16 +9,14 @@ import {
 
 const discoverLinks = [
   { id: 1, name: "Home", to: "/", isExternal: false },
-  { id: 2, name: "About Us", to: "/about/about-ecsc", isExternal: false },
+  { id: 2, name: "About Us", to: "/#about", isExternal: false },
   { id: 3, name: "Events", to: "/#events", isExternal: false },
-  { id: 4, name: "News", to: "/#news", isExternal: false },
+  { id: 4, name: "Team", to: "/#team", isExternal: false },
 ];
 
 const learnMoreLinks = [
-  { id: 1, name: "Courses", to: "#", isExternal: false },
-  { id: 2, name: "Achievements", to: "#achievements", isExternal: false },
-  { id: 3, name: "Gallery", to: "#", isExternal: false },
-  { id: 4, name: "Contact Us", to: "/#contact", isExternal: false },
+  { id: 1, name: "Achievements", to: "/#achievements", isExternal: false },
+  { id: 2, name: "Contact Us", to: "/#contact", isExternal: false },
 ];
 
 const socialLinks = [
@@ -49,6 +47,25 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const handleSmoothScroll = (e, targetId) => {
+    // Handle Home link - scroll to top if already on homepage
+    if (targetId === "/" && window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // Handle hash links to sections on current page
+    if (targetId && targetId.startsWith("/#")) {
+      e.preventDefault();
+      const id = targetId.replace("/#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <footer
       className="border-t border-gray-200 pt-16 pb-8 bg-white"
@@ -94,12 +111,13 @@ export default function Footer() {
                     </li>
                   ) : (
                     <li key={link.id}>
-                      <Link
-                        to={link.to}
+                      <a
+                        href={link.to}
+                        onClick={(e) => handleSmoothScroll(e, link.to)}
                         className="hover:text-red-600 transition-colors"
                       >
                         {link.name}
-                      </Link>
+                      </a>
                     </li>
                   ),
                 )}
@@ -122,12 +140,13 @@ export default function Footer() {
                     </li>
                   ) : (
                     <li key={link.id}>
-                      <Link
-                        to={link.to}
+                      <a
+                        href={link.to}
+                        onClick={(e) => handleSmoothScroll(e, link.to)}
                         className="hover:text-red-600 transition-colors"
                       >
                         {link.name}
-                      </Link>
+                      </a>
                     </li>
                   ),
                 )}
@@ -141,18 +160,49 @@ export default function Footer() {
               Connect with Us
             </h4>
             <div className="flex space-x-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.id}
-                  href={social.to}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
+              {/* Facebook */}
+              <a
+                href={socialLinks[0].to}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300"
+                aria-label={socialLinks[0].label}
+              >
+                {socialLinks[0].icon}
+              </a>
+
+              {/* Instagram */}
+              <a
+                href={socialLinks[1].to}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white hover:border-transparent transition-all duration-300"
+                aria-label={socialLinks[1].label}
+              >
+                {socialLinks[1].icon}
+              </a>
+
+              {/* YouTube */}
+              <a
+                href={socialLinks[2].to}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all duration-300"
+                aria-label={socialLinks[2].label}
+              >
+                {socialLinks[2].icon}
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={socialLinks[3].to}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all duration-300"
+                aria-label={socialLinks[3].label}
+              >
+                {socialLinks[3].icon}
+              </a>
             </div>
           </div>
         </div>
@@ -160,11 +210,9 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>© 2025 University of Kelaniya ECSC. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">
-            Design inspired by{" "}
-            <span className="text-gray-600 font-medium">
-              @ Cornellionier 2022
-            </span>
+          <p className="mt-2 md:mt-0 flex items-center gap-1">
+            Made with <span className="text-red-500 text-lg">❤️</span> by ECSC
+            Team
           </p>
         </div>
       </div>

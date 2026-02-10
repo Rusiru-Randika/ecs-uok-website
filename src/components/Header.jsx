@@ -1,33 +1,13 @@
 import { useState } from "react";
 import Logo from "../assets/logo/ecsc_logo_header.png";
 import { Link } from "react-router-dom";
-import { FaCaretDown, FaCaretRight, FaBars, FaXmark } from "react-icons/fa6";
+import { FaBars, FaXmark } from "react-icons/fa6";
 
 export default function Header() {
   const [toggleNavBar, setToggleNavBar] = useState(false);
-  const [toggleMenu1, setToggleMenu1] = useState(false);
-  const [toggleMenu2, setToggleMenu2] = useState(false);
 
   const handleClickNavBar = () => {
     setToggleNavBar(!toggleNavBar);
-  };
-
-  const handleClickMenuBar1 = () => {
-    setToggleMenu1(!toggleMenu1);
-    setToggleMenu2(false);
-  };
-
-  const handleCloseMenu1 = () => {
-    setToggleMenu1(false);
-  };
-
-  const handleClickMenuBar2 = () => {
-    setToggleMenu2(!toggleMenu2);
-    setToggleMenu1(false);
-  };
-
-  const handleCloseMenu2 = () => {
-    setToggleMenu2(false);
   };
 
   return (
@@ -51,63 +31,32 @@ export default function Header() {
               Home
             </Link>
 
-            {/* About Dropdown */}
-            <div className="relative">
-              <button
-                className="flex items-center gap-1 text-white hover:text-blue-200 font-medium transition-colors duration-200 bg-transparent border-0 cursor-pointer"
-                onClick={handleClickMenuBar1}
-              >
-                About{" "}
-                {toggleMenu1 ? (
-                  <FaCaretDown className="text-sm" />
-                ) : (
-                  <FaCaretRight className="text-sm" />
-                )}
-              </button>
-              <ul
-                className={
-                  toggleMenu1
-                    ? `absolute top-12 left-0 bg-white rounded-lg shadow-lg border border-gray-100 min-w-[200px] py-2`
-                    : `hidden`
-                }
-              >
-                <Link to={"/about/about-ecsc"}>
-                  <li
-                    className="px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors"
-                    onClick={handleCloseMenu1}
-                  >
-                    About ECSC
-                  </li>
-                </Link>
-                <Link to={"/about/executive-committee"}>
-                  <li
-                    className="px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-red-600 transition-colors"
-                    onClick={handleCloseMenu1}
-                  >
-                    Executive Committee
-                  </li>
-                </Link>
-              </ul>
-            </div>
+            {/* About Link */}
+            <a
+              href="/#about"
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+            >
+              About
+            </a>
 
             {/* Events Link */}
             <a
               href="/#events"
-              onClick={() => {
-                setToggleMenu1(false);
-                setToggleMenu2(false);
-              }}
               className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
             >
               Events
             </a>
 
+            {/* Team Link */}
+            <a
+              href="/#team"
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+            >
+              Team
+            </a>
+
             <a
               href="/#contact"
-              onClick={() => {
-                setToggleMenu1(false);
-                setToggleMenu2(false);
-              }}
               className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
             >
               Contact Us
@@ -149,77 +98,29 @@ export default function Header() {
             </div>
           </Link>
 
-          <div
-            className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium cursor-pointer flex items-center gap-2"
-            onClick={handleClickMenuBar1}
-          >
-            About{" "}
-            {toggleMenu1 ? (
-              <FaCaretDown className="text-sm" />
-            ) : (
-              <FaCaretRight className="text-sm" />
-            )}
-          </div>
-          {toggleMenu1 && (
-            <div className="pl-8 bg-gray-50 rounded-lg mx-2 mb-2">
-              <Link to={"/about/about-ecsc"}>
-                <div
-                  className="px-4 py-3 text-gray-600 hover:text-red-600"
-                  onClick={() => setToggleNavBar(false)}
-                >
-                  About ECSC
-                </div>
-              </Link>
-              <Link to={"/about/executive-committee"}>
-                <div
-                  className="px-4 py-3 text-gray-600 hover:text-red-600"
-                  onClick={() => setToggleNavBar(false)}
-                >
-                  Executive Committee
-                </div>
-              </Link>
+          <a href="/#about" onClick={() => setToggleNavBar(false)}>
+            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
+              About
             </div>
-          )}
+          </a>
 
-          <div
-            className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium cursor-pointer flex items-center gap-2"
-            onClick={handleClickMenuBar2}
-          >
-            Events{" "}
-            {toggleMenu2 ? (
-              <FaCaretDown className="text-sm" />
-            ) : (
-              <FaCaretRight className="text-sm" />
-            )}
-          </div>
-          {toggleMenu2 && (
-            <div className="pl-8 bg-gray-50 rounded-lg mx-2 mb-2">
-              <a
-                href="https://robotbattles.ecsc-uok.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div
-                  className="px-4 py-3 text-gray-600 hover:text-red-600"
-                  onClick={() => setToggleNavBar(false)}
-                >
-                  UOK Robot Battles
-                </div>
-              </a>
-              <a
-                href="https://medusa.ecsc-uok.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div
-                  className="px-4 py-3 text-gray-600 hover:text-red-600"
-                  onClick={() => setToggleNavBar(false)}
-                >
-                  Medusa - CTF Challenge
-                </div>
-              </a>
+          <a href="/#events" onClick={() => setToggleNavBar(false)}>
+            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
+              Events
             </div>
-          )}
+          </a>
+
+          <a href="/#team" onClick={() => setToggleNavBar(false)}>
+            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
+              Team
+            </div>
+          </a>
+
+          <a href="/#contact" onClick={() => setToggleNavBar(false)}>
+            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
+              Contact Us
+            </div>
+          </a>
 
           <a
             href="/#contact"

@@ -1,7 +1,9 @@
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import CoreEventsSection from "../components/CoreEventsSection";
+import TeamSection from "../components/TeamSection";
 import AchievementsSection from "../components/AchievementsSection";
+import ContactSection from "../components/ContactSection";
 import { Helmet } from "react-helmet-async";
 
 export default function LandingPage() {
@@ -20,7 +22,9 @@ export default function LandingPage() {
       <HeroSection />
       <AboutSection />
       <CoreEventsSection />
+      <TeamSection />
       <AchievementsSection />
+      <ContactSection />
     </div>
   );
 }

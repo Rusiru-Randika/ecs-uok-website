@@ -1,73 +1,188 @@
-import { FaTrophy } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AchievementsSection() {
-  const achievements = [
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const galleryImages = [
     {
       id: 1,
-      title: "National CTF Champions",
-      description: "Consistently ranking top across island-wide competitions.",
+      src: "/images/gallery/achievement1.jpg",
+      title: "Robot Battles 2023",
+      description: "Winners of the annual robotics competition",
     },
     {
       id: 2,
-      title: "Best Hardware Project Award",
-      description: "Awarded for innovation in embedded systems design.",
+      src: "/images/gallery/achievement2.jpg",
+      title: "Hackathon Victory",
+      description: "First place at National Hackathon",
     },
     {
       id: 3,
-      title: "200+ Active Members",
-      description: "A growing family of tech enthusiasts and innovators.",
+      src: "/images/gallery/achievement3.jpg",
+      title: "Tech Workshop",
+      description: "Successfully conducted workshop for 100+ students",
     },
     {
       id: 4,
-      title: "Top Tech Club 2023",
-      description: "Recognized for outstanding contribution to student life.",
+      src: "/images/gallery/achievement4.jpg",
+      title: "Community Project",
+      description: "Launched open-source project with 500+ stars",
+    },
+    {
+      id: 5,
+      src: "/images/gallery/achievement5.jpg",
+      title: "Industry Partnership",
+      description: "Collaboration with leading tech companies",
+    },
+    {
+      id: 6,
+      src: "/images/gallery/achievement6.jpg",
+      title: "Innovation Award",
+      description: "Recognized for outstanding innovation",
     },
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section
+      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20"
+      id="achievements"
+    >
+      {/* Wavy underline animation */}
+      <style>{`
+        .wavy-underline-achievements {
+          position: relative;
+          display: inline-block;
+        }
+        @keyframes waveMoveAchievements {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 50px 0;
+          }
+        }
+        .wavy-underline-achievements::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          width: 100%;
+          height: 12px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15'%3E%3Cpath d='M0 8 Q 12.5 2, 25 8 T 50 8 T 75 8 T 100 8' stroke='%23dc2626' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+          background-size: 50px 12px;
+          background-repeat: repeat-x;
+          animation: waveMoveAchievements 3s linear infinite;
+        }
+        
+        .gallery-item {
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+        .gallery-item:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-backdrop {
+          backdrop-filter: blur(8px);
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <h2 className="text-3xl font-bold text-center mb-16 tracking-wide uppercase text-gray-900">
-          Our Achievements
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our{" "}
+            <span className="wavy-underline-achievements">Achievements</span>
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Celebrating our milestones and memorable moments.
+          </p>
+        </div>
 
-        {/* Achievements Layout */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
-          {/* Left achievements */}
-          <div className="flex flex-col md:flex-row gap-8">
-            {achievements.slice(0, 2).map((achievement) => (
-              <div key={achievement.id} className="max-w-[200px]">
-                <h3 className="text-lg font-bold text-gray-900 mb-1">
-                  {achievement.title}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {achievement.description}
-                </p>
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryImages.map((image) => (
+            <div
+              key={image.id}
+              onClick={() => setSelectedImage(image)}
+              className="gallery-item bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100"><div class="text-center p-6"><div class="text-4xl mb-2">🏆</div><div class="text-gray-600 font-semibold">${image.title}</div></div></div>`;
+                  }}
+                />
               </div>
-            ))}
-          </div>
-
-          {/* Trophy Icon */}
-          <div className="text-6xl text-yellow-500 mx-8">
-            <FaTrophy />
-          </div>
-
-          {/* Right achievements */}
-          <div className="flex flex-col md:flex-row gap-8">
-            {achievements.slice(2, 4).map((achievement) => (
-              <div key={achievement.id} className="max-w-[200px]">
+              <div className="p-4">
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
-                  {achievement.title}
+                  {image.title}
                 </h3>
-                <p className="text-sm text-gray-600">
-                  {achievement.description}
-                </p>
+                <p className="text-sm text-gray-600">{image.description}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Modal for full image view */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 modal-backdrop"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors"
+            >
+              <svg
+                className="w-6 h-6 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Image */}
+            <div className="bg-gray-100">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                className="w-full h-auto max-h-[70vh] object-contain"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.parentElement.innerHTML = `<div class="w-full h-96 flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100"><div class="text-center p-8"><div class="text-6xl mb-4">🏆</div><div class="text-2xl text-gray-700 font-bold">${selectedImage.title}</div></div></div>`;
+                }}
+              />
+            </div>
+
+            {/* Image details */}
+            <div className="p-6 bg-white">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                {selectedImage.title}
+              </h3>
+              <p className="text-gray-600">{selectedImage.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
