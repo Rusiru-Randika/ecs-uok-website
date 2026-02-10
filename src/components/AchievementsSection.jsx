@@ -115,11 +115,11 @@ export default function AchievementsSection() {
               onClick={() => setSelectedImage(image)}
               className="gallery-item bg-white rounded-xl shadow-lg overflow-hidden"
             >
-              <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
+              <div className="h-80 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
                 <img
                   src={image.image}
                   alt={image.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   onError={(e) => {
                     e.target.style.display = "none";
                     e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100"><div class="text-center p-6"><div class="text-4xl mb-2">🏆</div><div class="text-gray-600 font-semibold">${image.title}</div></div></div>`;
