@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import WavyUnderline from "./common/WavyUnderline";
+import BlobAnimation from "./common/BlobAnimation";
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,56 +13,6 @@ export default function HeroSection() {
     <section className="relative bg-[#e1eaf5] min-h-screen overflow-hidden flex items-center pt-20">
       {/* CSS Animation Keyframes */}
       <style>{`
-        @keyframes morphShape {
-          0% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          25% {
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-          }
-          50% {
-            border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
-          }
-          75% {
-            border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%;
-          }
-          100% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-        }
-        
-        .animated-blob {
-          animation: morphShape 8s ease-in-out infinite;
-          background: #0a42bdff;
-        }
-        
-        .wavy-underline {
-          position: relative;
-          display: inline-block;
-        }
-        
-        @keyframes waveMove {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: 50px 0;
-          }
-        }
-        
-        .wavy-underline::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -6px;
-          width: 100%;
-          height: 12px;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 15'%3E%3Cpath d='M0 8 Q 12.5 2, 25 8 T 50 8 T 75 8 T 100 8' stroke='%23dc2626' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-          background-size: 50px 12px;
-          background-repeat: repeat-x;
-          animation: waveMove 3s linear infinite;
-        }
-        
         @keyframes bounceUp {
           0%, 100% {
             transform: translateY(0);
@@ -90,9 +42,14 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.2]">
               Let's Embrace the world of{" "}
-              <span className="text-blue-800 wavy-underline">Hardware</span> and{" "}
-              <span className="text-blue-800 wavy-underline">Software</span>, to
-              create a sustainable future
+              <span className="text-blue-800">
+                <WavyUnderline color="red">Hardware</WavyUnderline>
+              </span>{" "}
+              and{" "}
+              <span className="text-blue-800">
+                <WavyUnderline color="red">Software</WavyUnderline>
+              </span>
+              , to create a sustainable future
             </h1>
 
             <p className="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
@@ -136,7 +93,14 @@ export default function HeroSection() {
             }`}
           >
             {/* Animated decorative blob behind image */}
-            <div className="animated-blob absolute w-[350px] h-[350px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] -right-16 md:-right-20 lg:-right-24 top-1/2 -translate-y-1/2 z-0" />
+            <BlobAnimation
+              color="blue"
+              positionClass=""
+              className="absolute w-[350px] h-[350px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] -right-16 md:-right-20 lg:-right-24 top-1/2 -translate-y-1/2 z-0"
+              style={{
+                background: "#0a42bd",
+              }}
+            />
 
             {/* Image Container with Blob Shape */}
             <div
