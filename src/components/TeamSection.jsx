@@ -4,26 +4,26 @@ export default function TeamSection() {
   const teamMembers = [
     {
       id: 1,
-      name: "John Doe",
+      name: "Anuka Akshana",
       role: "President",
       image: "/images/team/member1.jpg",
     },
     {
       id: 2,
-      name: "Jane Smith",
-      role: "Vice President",
+      name: "Nadula Wathurakumbura",
+      role: "Secretary",
       image: "/images/team/member2.jpg",
     },
     {
       id: 3,
-      name: "Mike Johnson",
-      role: "Secretary",
+      name: "Aruna Kaushalaya",
+      role: "Vice President",
       image: "/images/team/member3.jpg",
     },
     {
       id: 4,
-      name: "Sarah Williams",
-      role: "Treasurer",
+      name: "Pasan Weerasekara",
+      role: "Junior Treasurer",
       image: "/images/team/member4.jpg",
     },
   ];
