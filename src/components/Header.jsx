@@ -55,6 +55,14 @@ export default function Header() {
               Team
             </a>
 
+            {/* Achievements Link */}
+            <a
+              href="/#achievements"
+              className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
+            >
+              Achievements
+            </a>
+
             <a
               href="/#contact"
               className="text-white hover:text-blue-200 font-medium transition-colors duration-200"
@@ -113,6 +121,12 @@ export default function Header() {
           <a href="/#team" onClick={() => setToggleNavBar(false)}>
             <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
               Team
+            </div>
+          </a>
+
+          <a href="/#achievements" onClick={() => setToggleNavBar(false)}>
+            <div className="px-4 py-3 text-gray-600 hover:text-red-600 font-medium">
+              Achievements
             </div>
           </a>
 

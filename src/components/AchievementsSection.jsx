@@ -44,9 +44,30 @@ export default function AchievementsSection() {
 
   return (
     <section
-      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20"
+      className="py-16 lg:py-24 bg-[#e1eaf5] scroll-mt-20 relative overflow-hidden"
       id="achievements"
     >
+      {/* Animated blob shapes */}
+      {/* Blue blob - bottom left */}
+      <div
+        className="absolute left-0 bottom-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        style={{
+          background: "rgba(59, 130, 246, 0.4)",
+          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          animation: "morphBlobAch1 8s ease-in-out infinite",
+          transform: "translate(-30%, 30%)",
+        }}
+      />
+      {/* Gold blob - top right */}
+      <div
+        className="absolute right-0 top-0 w-[400px] h-[400px] opacity-30 pointer-events-none hidden md:block"
+        style={{
+          background: "rgba(234, 179, 8, 0.4)",
+          borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+          animation: "morphBlobAch2 8s ease-in-out infinite",
+          transform: "translate(30%, -30%)",
+        }}
+      />
       {/* Wavy underline animation */}
       <style>{`
         .wavy-underline-achievements {
@@ -86,9 +107,25 @@ export default function AchievementsSection() {
         .modal-backdrop {
           backdrop-filter: blur(8px);
         }
+        
+        @keyframes morphBlobAch1 {
+          0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+          25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+          50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+          75% { border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%; }
+          100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        
+        @keyframes morphBlobAch2 {
+          0% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+          25% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+          50% { border-radius: 60% 40% 60% 30% / 70% 30% 40% 60%; }
+          75% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+          100% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
