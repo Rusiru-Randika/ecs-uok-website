@@ -145,33 +145,40 @@ export default function CoreEventsSection() {
           {events.map((event) => (
             <article
               key={event.id}
-              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full relative z-10`}
+              className={`event-card event-card-${event.color} bg-white rounded-2xl shadow-lg border-2 border-gray-100 overflow-hidden flex flex-col h-full relative z-10 group`}
             >
+              {/* Animated Background Shape */}
+              <div
+                className={`absolute top-[-50px] right-[-50px] w-32 h-32 rounded-full transition-transform duration-700 ease-in-out z-0 opacity-10 ${
+                  event.color === "purple" ? "bg-purple-600" : "bg-green-600"
+                } group-hover:scale-[25] group-hover:opacity-90`}
+              ></div>
+
               {/* Image Area */}
-              <div className="bg-gray-100 h-48 flex items-center justify-center overflow-hidden">
+              <div className="bg-gray-100 h-48 flex items-center justify-center overflow-hidden relative z-10 rounded-t-2xl">
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
               {/* Content */}
-              <div className="p-8 flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <div className="p-8 flex-1 flex flex-col relative z-10 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-white transition-colors duration-300">
                   {event.title}
                 </h3>
-                <p className="text-gray-600 mb-6 flex-grow">
+                <p className="text-gray-600 mb-6 flex-grow group-hover:text-gray-100 transition-colors duration-300">
                   {event.description}
                 </p>
                 <a
                   href={event.link}
                   target="_blank"
                   rel="noreferrer"
-                  className={`w-full inline-block text-center px-6 py-3 text-white font-semibold rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg border-0 ${
+                  className={`w-full inline-block text-center px-6 py-3 font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg border-0 ${
                     event.color === "purple"
-                      ? "bg-purple-600 hover:bg-purple-700"
-                      : "bg-green-600 hover:bg-green-700"
+                      ? "bg-purple-600 text-white group-hover:bg-white group-hover:text-purple-600"
+                      : "bg-green-600 text-white group-hover:bg-white group-hover:text-green-600"
                   }`}
                 >
                   View Event Details
