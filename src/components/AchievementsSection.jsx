@@ -117,7 +117,7 @@ export default function AchievementsSection() {
             >
               <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden">
                 <img
-                  src={image.src}
+                  src={image.image}
                   alt={image.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -180,7 +180,7 @@ export default function AchievementsSection() {
             {/* Image */}
             <div className="bg-gray-100">
               <img
-                src={selectedImage.src}
+                src={selectedImage.image}
                 alt={selectedImage.title}
                 className="w-full h-auto max-h-[70vh] object-contain"
                 onError={(e) => {
