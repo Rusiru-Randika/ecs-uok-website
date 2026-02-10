@@ -1,32 +1,30 @@
-import RecentEventsSection from "../components/RecentEventsSection";
 import HeroSection from "../components/HeroSection";
-import LetsTalkSection from "../components/LetsTalkSection";
-import PurposeSection from "../components/PurposeSection";
+import AboutSection from "../components/AboutSection";
+import CoreEventsSection from "../components/CoreEventsSection";
+import TeamSection from "../components/TeamSection";
+import AchievementsSection from "../components/AchievementsSection";
+import ContactSection from "../components/ContactSection";
 import { Helmet } from "react-helmet-async";
-//import Essencia from "../components/Essencia";
-//import InterviewCall from "../components/InterviewCall";
-//import RobotBattleBanner from "../components/RoboBattleBanner";
-//import Scoreboard from "../components/Scoreboard";
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className="bg-white">
       <Helmet>
-        <title>Electronics and Computer Science Club</title>
+        <title>
+          ECSC - Electronics and Computer Science Club | University of Kelaniya
+        </title>
         <meta
           name="description"
-          content="Welcome to the Electronics and Computer Science Club at the University of Kelaniya."
+          content="Welcome to the Electronics and Computer Science Club at the University of Kelaniya. We build, we code, and we innovate together."
         />
         <link rel="canonical" href="/" />
       </Helmet>
       <HeroSection />
-      {/*<Essencia />*/}
-      {/*<Scoreboard />*/}
-      {/*<RobotBattleBanner /> */}
-      {/*<InterviewCall />*/}
-      <PurposeSection />
-      <RecentEventsSection />
-      <LetsTalkSection />
+      <AboutSection />
+      <CoreEventsSection />
+      <TeamSection />
+      <AchievementsSection />
+      <ContactSection />
     </div>
   );
 }

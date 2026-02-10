@@ -1,0 +1,21 @@
+[
+  { "id": 1, "name": "Anuka Akshana", "role": "President", "image": "https://iili.io/fy0XA3F.md.jpg" },
+  { "id": 2, "name": "Nadula Wathurakumbura", "role": "Secretary", "image": "https://iili.io/fy0XT41.md.jpg" },
+  { "id": 3, "name": "Aruna Kaushalaya", "role": "Vice President", "image": "https://iili.io/fy0XRYg.md.jpg" },
+  { "id": 4, "name": "Pasan Weerasekara", "role": "Junior Treasurer", "image": "https://iili.io/fy0XzCB.md.jpg" },
+  { "id": 5, "name": "Dilhara Bandara", "role": "Vice Secretary", "image": "https://iili.io/fy0XQnV.md.jpg" },
+  { "id": 6, "name": "Heshan Mayuranga", "role": "Assistant Junior Treasurer", "image": "https://iili.io/fy0hDx4.md.jpg" },
+  { "id": 7, "name": "Malan De Alwis", "role": "Head of Designing", "image": "https://iili.io/fy0jHg9.md.jpg" },
+  { "id": 8, "name": "Charith Seneviratne", "role": "Head of Content Writing", "image": "https://iili.io/fy0jFbj.md.jpg" },
+  { "id": 9, "name": "Rusiru Randika", "role": "Web Master", "image": "https://iili.io/fy0j5zv.md.jpg" },
+  { "id": 10, "name": "Buddhika Sankalpa", "role": "PR Coordinator", "image": "https://iili.io/fy0jDkg.md.jpg" },
+  { "id": 11, "name": "Senomi Kithmanthi", "role": "Membership Coordinator", "image": "https://iili.io/fy0wCTG.md.jpg" },
+  { "id": 12, "name": "Thimira Gamage", "role": "Head of Seminar Series", "image": "https://iili.io/fy0wnjf.md.jpg" },
+  { "id": 13, "name": "Kavindu Sachinthe", "role": "Head of Computer Science", "image": "https://iili.io/fy0wzCl.md.jpg" },
+  { "id": 14, "name": "Janitha Methsahan", "role": "Head of Electronics", "image": "https://iili.io/fy0wlZx.md.jpg" },
+  { "id": 15, "name": "Chathura Kodikara", "role": "Committee Member (3rd Year)", "image": "https://iili.io/fy0NoHF.md.jpg" },
+  { "id": 16, "name": "Rivishka Pabasarani", "role": "Committee Member (3rd Year)", "image": "https://iili.io/fy0wpS9.md.jpg" },
+  { "id": 17, "name": "Niroshan Chandrasekaran", "role": "Committee Member (2nd Year)", "image": "https://iili.io/fy0N0Rn.md.jpg" },
+  { "id": 18, "name": "Nethmi Bhagya", "role": "Committee Member (2nd Year)", "image": "https://iili.io/fy0N1Ns.md.jpg" }
+]
+

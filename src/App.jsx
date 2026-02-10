@@ -1,38 +1,36 @@
 import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 import LandingPage from "./pages/LandingPage";
-import AboutPage from "./pages/AboutPage";
-import AboutECS from "./components/AboutECSSection";
-import MessagesSection from "./components/MessagesSection";
-import LeadershipSection from "./components/LeadershipSection";
-import NewsPage from "./pages/NewsPage";
-import AchievementPage from "./pages/AchievementPage";
-import DidYouKnow from "./pages/DidYouKnow";
-import RobotBattlePage from "./pages/RobotBattlePage";
-//import ECSCCricketPage from "./pages/ECSCCricketPage";
-import EWasteWeekPage from "./pages/EWasteWeekPage";
+import TeamPage from "./pages/TeamPage";
+import AchievementsPage from "./pages/AchievementsPage";
+import Preloader from "./components/Preloader";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<LandingPage />} />
-        <Route path="/about" element={<AboutPage />}>
-          <Route path="/about/about-ecsc" element={<AboutECS />} />
-          <Route path="/about/messages" element={<MessagesSection />} />
-          <Route
-            path="/about/executive-committee"
-            element={<LeadershipSection />}
-          />
-        </Route>
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/did-you-know" element={<DidYouKnow />} />
-        <Route path="/achievement" element={<AchievementPage />} />
-        {/*<Route path="/ecsc-cricket-livescore" element={<ECSCCricketPage />} />*/}
-        {/*<Route path="/robot_battles" element={<RobotBattlePage />} />*/}
-        <Route path="/e-waste-week" element={<EWasteWeekPage />} />
-      </Route>
-    </Routes>
+    <>
+      {loading && <Preloader />}
+      {!loading && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<LandingPage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/achievements" element={<AchievementsPage />} />
+          </Route>
+        </Routes>
+      )}
+    </>
   );
 }
 
