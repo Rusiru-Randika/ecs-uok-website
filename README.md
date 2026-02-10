@@ -2,7 +2,7 @@
 
 Welcome to the official repository for the Electronics and Computer Science Club website of the University of Kelaniya. This platform serves as a hub for our community, showcasing our events, achievements, and the talented team behind our initiatives.
 
-![ECSC Logo](./src/assets/logo/ecsc_logo_header.png)
+![ECSC Logo](public/assets/logo/ecsc_logo_header.png)
 
 ## 🚀 Overview
 

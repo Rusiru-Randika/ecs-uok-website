@@ -1,4 +1,4 @@
-import Logo from "../assets/logo/ecsc_logo_footer.png";
+const Logo = "/assets/logo/ecsc_logo_footer.png";
 import {
   FaFacebook,
   FaInstagram,

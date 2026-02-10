@@ -1,4 +1,4 @@
-import logo from "../assets/logo/ecsc_logo_load.png";
+const logo = "/assets/logo/ecsc_logo_load.png";
 import WavyUnderline from "./common/WavyUnderline";
 
 export default function Preloader() {
